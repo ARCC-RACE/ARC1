@@ -2,6 +2,36 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\ASF\common\services\sleepmgr\samd\sleepmgr.c
+
+src\ASF\common\services\usb\class\cdc\device\udi_cdc.c
+
+src\ASF\common\services\usb\udc\udc.c
+
+src\ASF\sam0\drivers\extint\extint_sam_d_r_h\extint.c
+
+src\ASF\sam0\drivers\sercom\sercom.c
+
+src\ASF\sam0\drivers\sercom\sercom_interrupt.c
+
+src\ASF\sam0\drivers\sercom\spi\spi.c
+
+src\ASF\sam0\drivers\sercom\spi\spi_interrupt.c
+
+src\ASF\sam0\drivers\tcc\tcc.c
+
+src\ASF\sam0\drivers\tcc\tcc_callback.c
+
+src\ASF\sam0\drivers\usb\stack_interface\usb_device_udd.c
+
+src\ASF\sam0\drivers\usb\stack_interface\usb_dual.c
+
+src\ASF\sam0\drivers\usb\usb_sam_d_r\usb.c
+
+src\ASF\sam0\drivers\extint\extint_callback.c
+
+src\ASF\common\services\usb\class\cdc\device\udi_cdc_desc.c
+
 src\ASF\common2\services\delay\sam0\systick_counter.c
 
 src\ASF\sam0\drivers\port\port.c

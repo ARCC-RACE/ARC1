@@ -62,6 +62,10 @@
 // From module: Delay routines
 #include <delay.h>
 
+// From module: EXTINT - External Interrupt (Callback APIs)
+#include <extint.h>
+#include <extint_callback.h>
+
 // From module: Generic board support
 #include <board.h>
 
@@ -73,6 +77,17 @@
 
 // From module: Part identification macros
 #include <parts.h>
+
+// From module: SAM D21/R21/D11/L21/DA1/L22 USB Dual role interface
+#include <usb_dual.h>
+
+// From module: SERCOM Callback API
+#include <sercom.h>
+#include <sercom_interrupt.h>
+
+// From module: SERCOM SPI - Serial Peripheral Interface (Callback APIs)
+#include <spi.h>
+#include <spi_interrupt.h>
 
 // From module: SYSTEM - Clock Management for SAMD21/R21/DA/HA
 #include <clock.h>
@@ -92,5 +107,26 @@
 
 // From module: SYSTEM - Reset Management for SAM D20/D21/R21/D09/D10/D11/DA/HA
 #include <reset.h>
+
+// From module: Sleep manager - SAMD implementation
+#include <samd/sleepmgr.h>
+#include <sleepmgr.h>
+
+// From module: TCC - Timer Counter for Control Applications (Callback APIs)
+#include <tcc.h>
+#include <tcc_callback.h>
+
+// From module: USB - Universal Serial Bus
+#include <usb.h>
+
+// From module: USB CDC Protocol
+#include <usb_protocol_cdc.h>
+
+// From module: USB Device CDC (Single Interface Device)
+#include <udi_cdc.h>
+
+// From module: USB Device Stack Core (Common API)
+#include <udc.h>
+#include <udd.h>
 
 #endif // ASF_H
