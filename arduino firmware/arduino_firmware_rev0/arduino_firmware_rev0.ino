@@ -5,15 +5,16 @@ Servo steering, throttle; //servo objects on pins 3, 5
 //Values to store the packet data in
 int steeringVal = 0;
 int throttleVal = 0;
+int steeringTrim = -60; //For adjusting steering
 
 
 //For serial event
-String packet = "";         // a String to hold incoming data
+long packet = 0;         // a String to hold incoming data
 boolean packetComplete = false;  // whether the string is complete
 
 //For watchdog timer
 unsigned long now = 0;
-unsigned long lastPacket = 0;
+unsigned long lastPacket = 0; //Two 16 bit ints, steering then thrptle 
 boolean wdt_isTripped = false; //so  the timer is not tripped continuously 
 
 void activeBrake(){
@@ -39,8 +40,6 @@ int calculateHardwareValues(int input){
 void setup() {
   // initialize serial to 115200 baud (SERIAL_8E1) 8 bit, even parity, 1 stop bit
   Serial.begin(115200);
-  // reserve 100 bytes for the packet:
-  packet.reserve(100);
 
   //Setup Servo pins
   steering.attach(3);
@@ -62,11 +61,8 @@ void loop() {
 
   if(wdt_isTripped || now - lastPacket > 500){ //If the contorller hasn't recived a new packet in half a second (short circuit limits calcs)
     
-    if(packet.length() == 5){ //check to make sure new packet is valid
-      //If packet is valid
-      steeringVal = 1500;
-      throttleVal = 1500;
-     }
+     steeringVal = 1500;
+     throttleVal = 1500;
     
     if(wdt_isTripped == false){
      Serial.println("Thruster controller watchdog tripped!");
@@ -76,29 +72,24 @@ void loop() {
     
   // When a new packet arrives indicated by a newline '\n' char:
   if (packetComplete) {
-    if(packet.length() == 5){ //check to make sure new packet is valid
       //If packet is valid
 
-      steeringVal = (packet[0] << 8)|packet[1];
-      throttleVal = (packet[2] << 8)|packet[3];
+      steeringVal = calculateHardwareValues(packet>>16);
+      throttleVal = calculateHardwareValues(packet&0b1111111111111111);
 
-      Serial.println(packet[1], BIN);
-
-      Serial.println(steeringVal, BIN); //DEBUG
-      Serial.println(steeringVal);
-      Serial.println(throttleVal, BIN); //DEBUG
-      Serial.println(throttleVal);
+//      Serial.println(packet, BIN);      //DEBUG
+//
+//      Serial.println(steeringVal, BIN); //DEBUG
+//      Serial.println(steeringVal);      //DEBUG
+//      Serial.println(throttleVal, BIN); //DEBUG
+//      Serial.println(throttleVal);      //DEBUG
       
       lastPacket = millis(); //Pet the watchdog timer
       wdt_isTripped = false;
-      
-    } else { //Packet invalid
-      Serial.println("Hardware controller packet invalid!"); //Packet is invlaid
-    }
     
-    // clear the packet:
-    packet = "";
-    packetComplete = false;
+      // clear the packet:
+      packet = 0;
+      packetComplete = false;
   }
 
   //update thrusters to new values
@@ -109,22 +100,21 @@ void loop() {
       throttle.writeMicroseconds(throttleVal);
     }
   
-  steering.writeMicroseconds(steeringVal);
+  steering.writeMicroseconds(constrain((steeringVal + steeringTrim), 1100, 1900));
 
   delay(1);
 }
 
 
 void serialEvent() {
-  while (Serial.available()) {
-    // get the new byte:
-    char inChar = (char)Serial.read();
-    // add it to the packet:
-    packet += inChar;
-    // if the incoming character is a newline, set a flag so the main loop can
-    // do something about it:
-    if (inChar == '\n') {
-      packetComplete = true;
-    }
+  if (Serial.available() > 4) {
+    for(int i = 0; i<4; i++){
+      // get the new byte:
+      byte inByte = (byte)Serial.read();
+      // add it to the packet:
+      packet = (packet<<8)|inByte;
+     }
+     packetComplete = true;
+     while(Serial.available()){Serial.read();} //Clear the Serial input buffer
   }
 }
