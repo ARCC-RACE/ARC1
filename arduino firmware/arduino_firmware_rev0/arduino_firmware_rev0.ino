@@ -3,8 +3,8 @@
 Servo steering, throttle; //servo objects on pins 3, 5
 
 //Values to store the packet data in
-int steeringVal = 0;
-int throttleVal = 0;
+int steeringVal = 1500;
+int throttleVal = 1500;
 int steeringTrim = -60; //For adjusting steering
 
 
