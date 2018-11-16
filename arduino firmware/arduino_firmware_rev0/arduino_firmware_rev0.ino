@@ -96,13 +96,11 @@ void loop() {
   }
 
   //update thrusters to new values
-  if(throttleVal < 1400 || throttleVal > 1600){ //Temporary safety system to prevent over throttle
+  if(throttleVal < 1300 || throttleVal > 1700){ //Temporary safety system to prevent over throttle
       activeBrake();
-    } 
-  else {
+    } else {
       throttle.writeMicroseconds(throttleVal);
     }
-  
   steering.writeMicroseconds(constrain((steeringVal + steeringTrim), 1100, 1900));
 
   delay(1);
