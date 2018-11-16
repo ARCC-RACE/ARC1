@@ -9,12 +9,13 @@ int steeringTrim = -60; //For adjusting steering
 
 
 //For serial event
-long packet = 0;         // a String to hold incoming data
-boolean packetComplete = false;  // whether the string is complete
+const int packetLength = 4;
+byte packet[4] = {0,0,0,0};         // a byte array to hold incoming data (length = 4)
+boolean packetComplete = false;     // whether the string is complete
 
 //For watchdog timer
 unsigned long now = 0;
-unsigned long lastPacket = 0; //Two 16 bit ints, steering then thrptle 
+unsigned long lastPacket = 0;  //Two 16 bit ints, steering then thrptle 
 boolean wdt_isTripped = false; //so  the timer is not tripped continuously 
 
 void activeBrake(){
@@ -65,7 +66,7 @@ void loop() {
      throttleVal = 1500;
     
     if(wdt_isTripped == false){
-     Serial.println("Thruster controller watchdog tripped!");
+     Serial.println("Drive controller watchdog tripped!");
      }
      wdt_isTripped = true;
    }
@@ -74,8 +75,8 @@ void loop() {
   if (packetComplete) {
       //If packet is valid
 
-      steeringVal = calculateHardwareValues(packet>>16);
-      throttleVal = calculateHardwareValues(packet&0b1111111111111111);
+      steeringVal = calculateHardwareValues((packet[3]<<8)|packet[2]);
+      throttleVal = calculateHardwareValues((packet[1]<<8)|packet[0]);
 
 //      Serial.println(packet, BIN);      //DEBUG
 //
@@ -88,7 +89,9 @@ void loop() {
       wdt_isTripped = false;
     
       // clear the packet:
-      packet = 0;
+      for(int i = 0; i < packetLength; i++){
+        packet[i] = 0;
+        }
       packetComplete = false;
   }
 
@@ -107,14 +110,15 @@ void loop() {
 
 
 void serialEvent() {
-  if (Serial.available() > 4) {
-    for(int i = 0; i<4; i++){
-      // get the new byte:
-      byte inByte = (byte)Serial.read();
-      // add it to the packet:
-      packet = (packet<<8)|inByte;
-     }
-     packetComplete = true;
-     while(Serial.available()){Serial.read();} //Clear the Serial input buffer
-  }
+  packetComplete = true;
+  Serial.readBytes(packet, packetLength);
+
+  //DEBUGGING INFO
+  /*Serial.write(packet[0]);
+  Serial.write(packet[1]);
+  Serial.write(packet[2]);
+  Serial.write(packet[3]);
+  Serial.flush();*/
+  
+  while(Serial.available()){Serial.read();} //Clear the Serial input buffer
 }
