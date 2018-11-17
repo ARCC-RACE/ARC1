@@ -9,14 +9,17 @@ int steeringTrim = -60; //For adjusting steering
 
 
 //For serial event
-const int packetLength = 4;
-byte packet[4] = {0,0,0,0};         // a byte array to hold incoming data (length = 4)
+const int packetLength = 5;         //Packet structure = |PEC|steering MSB|steering LSB|throttle MSB|throttle LSB|
+byte packet[5] = {0,0,0,0,0};       // a byte array to hold incoming data (length = 4)
 boolean packetComplete = false;     // whether the string is complete
 
 //For watchdog timer
 unsigned long now = 0;
 unsigned long lastPacket = 0;  //Two 16 bit ints, steering then thrptle 
 boolean wdt_isTripped = false; //so  the timer is not tripped continuously 
+
+//For pin 13 LED in order to see packet loss
+const int led = 13;
 
 void activeBrake(){
    throttle.writeMicroseconds(1700);
@@ -40,7 +43,9 @@ int calculateHardwareValues(int input){
 /*------------------------------Start of runtime program------------------------------*/
 void setup() {
   // initialize serial to 115200 baud (SERIAL_8E1) 8 bit, even parity, 1 stop bit
-  Serial.begin(115200);
+  Serial.begin(115200, SERIAL_8E1);
+
+  pinMode(led, OUTPUT);
 
   //Setup Servo pins
   steering.attach(3);
@@ -108,8 +113,31 @@ void loop() {
 
 
 void serialEvent() {
-  packetComplete = true;
-  Serial.readBytes(packet, packetLength);
+  
+  byte pecVal = 0; //for Packet Error Checking
+
+  for(int i = 0; i < packetLength; i++){
+    packet[i] = static_cast<byte>(Serial.read()); //Never ever use readBytes()
+    if(i < 4){
+      pecVal = pecVal^packet[i]; //XOR with incomming byte
+      }
+    }
+
+   //if packet is good based on PEC byte
+   if(pecVal == packet[4])
+   {
+      packetComplete = true;
+      digitalWrite(led, HIGH);
+   }
+   else
+   {
+      digitalWrite(led, LOW);
+      while(Serial.available()){Serial.read();} //Clear the Serial input buffer
+      // clear the packet:
+      for(int i = 0; i < packetLength; i++){
+        packet[i] = 0;
+        }     
+   }
 
   //DEBUGGING INFO
   /*Serial.write(packet[0]);
@@ -117,6 +145,4 @@ void serialEvent() {
   Serial.write(packet[2]);
   Serial.write(packet[3]);
   Serial.flush();*/
-  
-  while(Serial.available()){Serial.read();} //Clear the Serial input buffer
 }
