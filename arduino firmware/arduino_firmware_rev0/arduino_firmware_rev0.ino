@@ -107,8 +107,6 @@ void loop() {
       throttle.writeMicroseconds(throttleVal);
     }
   steering.writeMicroseconds(constrain((steeringVal + steeringTrim), 1100, 1900));
-
-  delay(1);
 }
 
 
@@ -121,6 +119,7 @@ void serialEvent() {
     if(i < 4){
       pecVal = pecVal^packet[i]; //XOR with incomming byte
       }
+    delayMicroseconds(1000);
     }
 
    //if packet is good based on PEC byte
