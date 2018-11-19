@@ -119,7 +119,7 @@ void serialEvent() {
     if(i < 4){
       pecVal = pecVal^packet[i]; //XOR with incomming byte
       }
-    delayMicroseconds(1000);
+    delayMicroseconds(1000); //Wait to finish adding the incomming byte to the buffer before reading it
     }
 
    //if packet is good based on PEC byte
