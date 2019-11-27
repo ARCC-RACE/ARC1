@@ -1,0 +1,22 @@
+$def with (docList, sessionid)
+<html>
+<head>
+    <title>Document Listing</title>
+</head>
+<body>
+    <h1>List of Documents:</h1>
+    <table border="1">
+    $for row in docList:
+        $ linkString = '<a href="/gdocs/%s=%s&sessionid=%s">%s</a>' % ('%s', row['uri'], sessionid, row['uri'])
+        $ requestString = {'folder': 'browse?folder', 'document': 'getcontents?uri'}.get(row['type'])
+        <tr>
+            <td>$row['title']</td>
+            <td>$row['type']</td>
+            <td>$row.get('lastAccessed', 'None')</td>
+            <td>$row.get('folder', 'No Parent')</td>
+            <td>$:{linkString % requestString}</td>
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>7.0</ProjectVersion>
+    <ToolchainName>com.Atmel.ARMGCC.CPP</ToolchainName>
+    <ProjectGuid>406d3507-00ba-46aa-a675-c565df72cbed</ProjectGuid>
+    <avrdevice>ATSAMD21G18A</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>StaticLibrary</OutputType>
+    <Language>CPP</Language>
+    <OutputFileName>lib$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.a</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <Name>ArduinoCore</Name>
+    <ArduinoIdeDir>C:\Program Files (x86)\Arduino</ArduinoIdeDir>
+    <ArduinoProjectType>Core</ArduinoProjectType>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <AssemblyName>ArduinoCore</AssemblyName>
+    <RootNamespace>ArduinoCore</RootNamespace>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress />
+    <UncachedRange />
+    <preserveEEPROM>true</preserveEEPROM>
+    <OverrideVtorValue />
+    <BootSegment>2</BootSegment>
+    <ResetRule>0</ResetRule>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <EraseKey />
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+  <options />
+  <configurations />
+  <files />
+  <documentation help="" />
+  <offline-documentation help="" />
+  <dependencies>
+    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.47.0" />
+  </dependencies>
+</framework-data>
+    </AsfFrameworkConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <ArmGccCpp>
+  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+  <armgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>F_CPU=48000000L</Value>
+      <Value>ARDUINO=108010</Value>
+      <Value>ARDUINO_SAMD_ZERO</Value>
+      <Value>ARDUINO_ARCH_SAMD</Value>
+      <Value>USB_VID=0x2341</Value>
+      <Value>USB_PID=0x804d</Value>
+      <Value>USB_PRODUCT="\"Arduino Zero\""</Value>
+      <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
+      <Value>USBCON</Value>
+      <Value>SAMD_SERIES</Value>
+    </ListValues>
+  </armgcc.compiler.symbols.DefSymbols>
+  <armgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+    </ListValues>
+  </armgcc.compiler.directories.IncludePaths>
+  <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
+  <armgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics -fno-exceptions</armgcc.compiler.optimization.OtherFlags>
+  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcc.compiler.optimization.PrepareDataForGarbageCollection>True</armgcc.compiler.optimization.PrepareDataForGarbageCollection>
+  <armgcc.compiler.optimization.EnableLongCalls>False</armgcc.compiler.optimization.EnableLongCalls>
+  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+  <armgcc.compiler.warnings.InhibitAllWarnings>True</armgcc.compiler.warnings.InhibitAllWarnings>
+  <armgcc.compiler.miscellaneous.OtherFlags>-std=gnu11 --param max-inline-insns-single=500 -nostdlib</armgcc.compiler.miscellaneous.OtherFlags>
+  <armgcccpp.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>F_CPU=48000000L</Value>
+      <Value>ARDUINO=108010</Value>
+      <Value>ARDUINO_SAMD_ZERO</Value>
+      <Value>ARDUINO_ARCH_SAMD</Value>
+      <Value>USB_VID=0x2341</Value>
+      <Value>USB_PID=0x804d</Value>
+      <Value>USB_PRODUCT="\"Arduino Zero\""</Value>
+      <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
+      <Value>USBCON</Value>
+      <Value>SAMD_SERIES</Value>
+    </ListValues>
+  </armgcccpp.compiler.symbols.DefSymbols>
+  <armgcccpp.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+    </ListValues>
+  </armgcccpp.compiler.directories.IncludePaths>
+  <armgcccpp.compiler.optimization.level>Optimize for size (-Os)</armgcccpp.compiler.optimization.level>
+  <armgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics -fno-exceptions</armgcccpp.compiler.optimization.OtherFlags>
+  <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcccpp.compiler.optimization.PrepareDataForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareDataForGarbageCollection>
+  <armgcccpp.compiler.optimization.EnableLongCalls>False</armgcccpp.compiler.optimization.EnableLongCalls>
+  <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
+  <armgcccpp.compiler.warnings.InhibitAllWarnings>True</armgcccpp.compiler.warnings.InhibitAllWarnings>
+  <armgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11 --param max-inline-insns-single=500 -nostdlib</armgcccpp.compiler.miscellaneous.OtherFlags>
+  <armgcccpp.linker.general.UseNewlibNano>True</armgcccpp.linker.general.UseNewlibNano>
+  <armgcccpp.linker.general.AdditionalSpecs>Use syscall stubs (--specs=nosys.specs)</armgcccpp.linker.general.AdditionalSpecs>
+  <armgcccpp.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libm</Value>
+    </ListValues>
+  </armgcccpp.linker.libraries.Libraries>
+  <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
+  <armgcccpp.linker.miscellaneous.LinkerFlags>-Wl,--cref -Os -Wl,--check-sections -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align</armgcccpp.linker.miscellaneous.LinkerFlags>
+  <armgcccpp.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+    </ListValues>
+  </armgcccpp.assembler.general.IncludePaths>
+  <armgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.assembler.debugging.DebugLevel>
+  <armgcccpp.preprocessingassembler.general.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+    </ListValues>
+  </armgcccpp.preprocessingassembler.general.IncludePaths>
+</ArmGccCpp>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <ArmGccCpp>
+  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+  <armgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>DEBUG</Value>
+      <Value>F_CPU=48000000L</Value>
+      <Value>ARDUINO=108010</Value>
+      <Value>ARDUINO_SAMD_ZERO</Value>
+      <Value>ARDUINO_ARCH_SAMD</Value>
+      <Value>USB_VID=0x2341</Value>
+      <Value>USB_PID=0x804d</Value>
+      <Value>USB_PRODUCT="\"Arduino Zero\""</Value>
+      <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
+      <Value>USBCON</Value>
+      <Value>SAMD_SERIES</Value>
+    </ListValues>
+  </armgcc.compiler.symbols.DefSymbols>
+  <armgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+    </ListValues>
+  </armgcc.compiler.directories.IncludePaths>
+  <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
+  <armgcc.compiler.optimization.OtherFlags>-fno-threadsafe-statics -fno-exceptions</armgcc.compiler.optimization.OtherFlags>
+  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcc.compiler.optimization.PrepareDataForGarbageCollection>True</armgcc.compiler.optimization.PrepareDataForGarbageCollection>
+  <armgcc.compiler.optimization.EnableLongCalls>False</armgcc.compiler.optimization.EnableLongCalls>
+  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+  <armgcc.compiler.warnings.InhibitAllWarnings>True</armgcc.compiler.warnings.InhibitAllWarnings>
+  <armgcc.compiler.miscellaneous.OtherFlags>-std=gnu11 --param max-inline-insns-single=500 -nostdlib</armgcc.compiler.miscellaneous.OtherFlags>
+  <armgcccpp.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>DEBUG</Value>
+      <Value>F_CPU=48000000L</Value>
+      <Value>ARDUINO=108010</Value>
+      <Value>ARDUINO_SAMD_ZERO</Value>
+      <Value>ARDUINO_ARCH_SAMD</Value>
+      <Value>USB_VID=0x2341</Value>
+      <Value>USB_PID=0x804d</Value>
+      <Value>USB_PRODUCT="\"Arduino Zero\""</Value>
+      <Value>USB_MANUFACTURER="\"Arduino LLC\""</Value>
+      <Value>USBCON</Value>
+      <Value>SAMD_SERIES</Value>
+    </ListValues>
+  </armgcccpp.compiler.symbols.DefSymbols>
+  <armgcccpp.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+    </ListValues>
+  </armgcccpp.compiler.directories.IncludePaths>
+  <armgcccpp.compiler.optimization.level>Optimize for size (-Os)</armgcccpp.compiler.optimization.level>
+  <armgcccpp.compiler.optimization.OtherFlags>-fno-threadsafe-statics -fno-exceptions</armgcccpp.compiler.optimization.OtherFlags>
+  <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcccpp.compiler.optimization.PrepareDataForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareDataForGarbageCollection>
+  <armgcccpp.compiler.optimization.EnableLongCalls>False</armgcccpp.compiler.optimization.EnableLongCalls>
+  <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
+  <armgcccpp.compiler.warnings.InhibitAllWarnings>True</armgcccpp.compiler.warnings.InhibitAllWarnings>
+  <armgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11 --param max-inline-insns-single=500 -nostdlib</armgcccpp.compiler.miscellaneous.OtherFlags>
+  <armgcccpp.linker.general.UseNewlibNano>True</armgcccpp.linker.general.UseNewlibNano>
+  <armgcccpp.linker.general.AdditionalSpecs>Use syscall stubs (--specs=nosys.specs)</armgcccpp.linker.general.AdditionalSpecs>
+  <armgcccpp.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libm</Value>
+    </ListValues>
+  </armgcccpp.linker.libraries.Libraries>
+  <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
+  <armgcccpp.linker.miscellaneous.LinkerFlags>-Wl,--cref -Os -Wl,--check-sections -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align</armgcccpp.linker.miscellaneous.LinkerFlags>
+  <armgcccpp.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+    </ListValues>
+  </armgcccpp.assembler.general.IncludePaths>
+  <armgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.assembler.debugging.DebugLevel>
+  <armgcccpp.preprocessingassembler.general.IncludePaths>
+    <ListValues>
+      <Value>%24(PackRepoDir)\arm\CMSIS\5.4.0\CMSIS\Core\Include\</Value>
+      <Value>%24(PackRepoDir)\atmel\SAMD21_DFP\1.3.331\samd21a\include</Value>
+    </ListValues>
+  </armgcccpp.preprocessingassembler.general.IncludePaths>
+  <armgcccpp.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.preprocessingassembler.debugging.DebugLevel>
+</ArmGccCpp>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="library.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="include\" />
+    <Folder Include="include\libraries\" />
+    <Folder Include="include\libraries\program files\" />
+    <Folder Include="include\libraries\program files\Adobe\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\ACC\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\ACC\resources\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\ACC\resources\legacy\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\ACC\resources\legacy\host\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\CCDAssets\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\CCDAssets\resources\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\CCDAssets\resources\designLibraries\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\cs_CZ\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\da_DK\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\de_DE\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\en_AE\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\en_GB\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\en_IL\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\en_US\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\es_ES\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\es_MX\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\fi_FI\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\fr_CA\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\fr_FR\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\fr_MA\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\hu_HU\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\it_IT\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\ja_JP\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\ko_KR\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\nb_NO\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\nl_NL\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\pl_PL\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\pt_BR\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\ru_RU\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\sv_SE\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\tr_TR\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\uk_UA\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\zh_CN\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\zh_TW\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ar_AE\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\bg_BG\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\cs_CZ\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\da_DK\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\de_DE\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\el_GR\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_AE\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_GB\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_IL\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_MX\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_US\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_XM\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\es_ES\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\es_MX\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\et_EE\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fi_FI\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_CA\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_FR\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_MA\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_MX\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_XM\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\he_IL\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\hr_HR\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\hu_HU\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\it_IT\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ja_JP\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ko_KR\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\lt_LT\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\lv_LV\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\nb_NO\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\nl_NL\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\pl_PL\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\pt_BR\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ro_RO\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ru_RU\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\sk_SK\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\sl_SI\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\sv_SE\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\tr_TR\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\uk_UA\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\zh_CN\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\zh_TW\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Plug-Ins\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Plug-Ins\Em%2520Software\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Plug-Ins\Em%2520Software\%28DocsFlow%2520Resources%29\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Plug-Ins\Em%2520Software\%28DocsFlow%2520Resources%29\backflow\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Plug-Ins\Em%2520Software\%28DocsFlow%2520Resources%29\backflow\templates\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Resources\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Resources\CEP\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Resources\CEP\extensions\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Resources\CEP\extensions\com.adobe.butler.OnBoarding\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Resources\CEP\extensions\com.adobe.butler.OnBoarding\offline\" />
+    <Folder Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Resources\CEP\extensions\com.adobe.butler.OnBoarding\offline\AdaptiveLayout\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\ACC\resources\index.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\ACC\resources\legacy\host\host.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\CCDAssets\resources\designLibraries\ccd.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\CCDAssets\resources\designLibraries\index.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\CCDAssets\resources\designLibraries\purchaseStock.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520Creative%2520Cloud\CCDAssets\resources\designLibraries\purchaseTypekit.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\cs_CZ\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\da_DK\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\de_DE\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\en_AE\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\en_GB\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\en_IL\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\en_US\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\es_ES\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\es_MX\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\fi_FI\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\fr_CA\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\fr_FR\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\fr_MA\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\hu_HU\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\it_IT\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\ja_JP\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\ko_KR\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\nb_NO\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\nl_NL\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\pl_PL\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\pt_BR\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\ru_RU\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\sv_SE\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\tr_TR\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\uk_UA\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\zh_CN\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Legal\zh_TW\license.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ar_AE\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ar_AE\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\bg_BG\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\bg_BG\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\cs_CZ\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\cs_CZ\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\da_DK\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\da_DK\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\de_DE\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\de_DE\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\el_GR\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\el_GR\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_AE\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_AE\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_GB\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_GB\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_IL\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_IL\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_MX\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_MX\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_US\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_US\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_XM\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\en_XM\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\es_ES\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\es_ES\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\es_MX\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\es_MX\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\et_EE\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\et_EE\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fi_FI\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fi_FI\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_CA\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_CA\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_FR\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_FR\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_MA\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_MA\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_MX\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_MX\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_XM\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\fr_XM\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\he_IL\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\he_IL\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\hr_HR\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\hr_HR\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\hu_HU\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\hu_HU\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\it_IT\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\it_IT\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ja_JP\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ja_JP\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ko_KR\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ko_KR\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\lt_LT\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\lt_LT\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\lv_LV\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\lv_LV\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\nb_NO\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\nb_NO\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\nl_NL\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\nl_NL\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\pl_PL\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\pl_PL\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\pt_BR\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\pt_BR\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ro_RO\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ro_RO\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ru_RU\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\ru_RU\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\sk_SK\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\sk_SK\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\sl_SI\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\sl_SI\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\sv_SE\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\sv_SE\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\tr_TR\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\tr_TR\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\uk_UA\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\uk_UA\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\zh_CN\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\zh_CN\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\zh_TW\ConnectionFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\OBLRes\zh_TW\LicenseFAQ.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Plug-Ins\Em%2520Software\%28DocsFlow%2520Resources%29\backflow\templates\doclist.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Plug-Ins\Em%2520Software\%28DocsFlow%2520Resources%29\backflow\templates\index.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Plug-Ins\Em%2520Software\%28DocsFlow%2520Resources%29\backflow\templates\testresults.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Resources\CEP\extensions\com.adobe.butler.OnBoarding\index.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Resources\CEP\extensions\com.adobe.butler.OnBoarding\offline\AdaptiveLayout\coachmark.html">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="include\libraries\program files\Adobe\Adobe%2520InDesign%2520CC%25202019\Resources\CEP\extensions\com.adobe.butler.OnBoarding\offline\AdaptiveLayout\LayoutAdjustDoneGood.html">
+      <SubType>compile</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>

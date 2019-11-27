@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Adjust LAyout - IAM</title>
+    <link rel="stylesheet" type="text/css" href="style_coachmark.css">
+</head>
+<body>
+<div class="box">
+    <div class="gif"><img src="Adjust-Layout.gif"/></div>
+    <div class="line" id="line1"></div>
+    <div class="heading">
+        <div class="title" data-locale="LayoutAdjustHeader"></div>
+        <div class="new" data-locale="New"></div>
+    </div>
+    <div class="content" data-locale="LayoutAdjustCoachmarkContent"></div>
+</div>
+<script type="text/javascript" src="../../js/CSInterface.js"></script>
+<script>
+
+  var CSLibrary = new CSInterface();
+
+  function SendEvent(data, type) {
+    var rsp_event = new CSEvent("OnBoardingEvent", "APPLICATION");
+    var jsonObj = {
+      "Data": data,
+      "Type": type
+    };
+    rsp_event.data = JSON.stringify(jsonObj);
+    rsp_event.extensionId = CSLibrary.getExtensionID();
+    CSLibrary.dispatchEvent(rsp_event);
+  }
+
+  function closeFunction() {
+    SendEvent("LayoutAdjustCoachmarkClose", "LayoutAdjustmentWorkflow");
+  }
+
+  window.onload = function () {
+    CSLibrary.initResourceBundle();
+  };
+
+  setTimeout(closeFunction, 10000);
+
+</script>
+</body>
+</html>

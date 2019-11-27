@@ -1,0 +1,19 @@
+$def with (*testResults)
+<html>
+<head>
+    <title>Test Results</title>
+</head>
+<body>
+    <h1>Test Results:</h1>
+    $for section in testResults:
+        <h2>$:section[0]</h2>
+        <table border="1">
+        $for row in section[1]:
+            <tr>
+            $for column in row:
+                <td>$:column</td>
+            </tr>
+        </table>
+
+</body>
+</html>
