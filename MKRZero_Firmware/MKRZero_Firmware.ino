@@ -10,8 +10,6 @@
 #define steering_pin 4
 #define throttle_pin 5
 
-#define led 13
-
 Servo steering, throttle;
 
 //Values to store the packet data in
@@ -78,7 +76,7 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(ch5_pin), ch5_rising_interrupt, RISING);
   attachInterrupt(digitalPinToInterrupt(ch6_pin), ch6_rising_interrupt, RISING);
 
-  pinMode(led, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
  
   while (!Serial); //Wait to connect to computer
 
@@ -177,11 +175,11 @@ void serialEvent() {
    if(pecVal == packet[4])
    {
       packetComplete = true;
-      digitalWrite(led, HIGH);
+      digitalWrite(LED_BUILTIN, HIGH);
    }
    else
    {
-      digitalWrite(led, LOW);
+      digitalWrite(LED_BUILTIN, LOW);
       while(Serial.available()){Serial.read();} //Clear the Serial input buffer
       // clear the packet:
       for(int i = 0; i < packetLength; i++){
