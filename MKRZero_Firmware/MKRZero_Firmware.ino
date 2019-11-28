@@ -155,6 +155,10 @@ void loop() {
     
     Serial.write(outGoingPacket, outGoingPacketLength);
   }
+
+  if(Serial.available() > 0){
+    serialEvent();
+  }
 }
 
 void serialEvent() {
