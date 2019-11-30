@@ -57,9 +57,18 @@ void ch6_rising_interrupt();
 void ch6_falling_interrupt();
 
 //Function for converting input (-1000 to 1000) to microseconds (1000 to 2000)
-int calculateHardwareValues(int input){ 
+inline int calculateHardwareValues(int input){ 
   input = constrain(input, -1000, 1000);
   return map(input, -1000, 1000, 1000, 2000);
+}
+
+// Go from 16 bit to 32 bit two's complement
+inline int twosComp(int input){
+  if(input&0b1000000000000000){
+    return(input|0b11111111111111111000000000000000);
+  } else {
+    return(input);
+  }
 }
 
 void setup() {
@@ -103,8 +112,8 @@ void loop() {
   // When a new packet arrives indicated by a newline '\n' char:
   if (packetComplete) {      //If packet is valid
 
-      steeringVal = calculateHardwareValues((packet[3]<<8)|packet[2]);
-      throttleVal = calculateHardwareValues((packet[1]<<8)|packet[0]);
+      steeringVal = calculateHardwareValues(twosComp((packet[3]<<8)|packet[2]));
+      throttleVal = calculateHardwareValues(twosComp((packet[1]<<8)|packet[0]));
 
 //      Serial.println(packet, BIN);      //DEBUG
 //
@@ -156,6 +165,8 @@ void loop() {
 
   if(Serial.available() > 0){
     serialEvent();
+  } else {
+    digitalWrite(LED_BUILTIN, LOW);  
   }
 }
 
@@ -179,7 +190,6 @@ void serialEvent() {
    }
    else
    {
-      digitalWrite(LED_BUILTIN, LOW);
       while(Serial.available()){Serial.read();} //Clear the Serial input buffer
       // clear the packet:
       for(int i = 0; i < packetLength; i++){
